@@ -1,0 +1,50 @@
+<c:when test="${mode=='ALL_COMMENTS'}">
+			<div class="container text-center" id="tasksDiv">
+			<h3>ALL Comments</h3>
+			<hr>
+			<div class="table-responsive">
+			<form method="POST" action="add-comment">
+			
+			
+			<table class="table table-striped">
+			<thead>
+				<tr>
+					
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<c:forEach var="comment" items="${comments}">
+				<tr>
+					<td>${comment.user}</td>
+					<td>${comment.description}</td>
+					<td><a href="/edit-comment?id=${comment.id}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+					<td><a href="/delete-comment?id=${comment.id}"><span class="glyphicon glyphicon-trash"></span></a></td>
+					
+				</tr>
+				
+				</c:forEach>
+				<tr>
+				<td>
+				<input type="hidden" name="id" value="${employee.id }" />
+				<input type="text" class="form-control" name="user"
+								value="${comment.user }" /></td>
+				<td><input type="text" class="form-control" name="description"
+								value="${comment.description }" /></td>
+				<td><input type="submit" class="btn btn-primary" value="Post" /></td>
+				
+				</tr>
+				
+				
+				
+			</tbody>
+			
+			</table>
+			</form>
+			
+			</div>
+			
+			</div>
+			
+			</c:when>
